@@ -3,20 +3,22 @@
  */
 
 
-	/*This program aims to use an API to a google fusion table as a means 
-	 to get the data into a chart to be displayed on our webpage.
-	 */
-
 /*Outline:
- * 1)FRED data on Civilian Unemployment is saved as a csv file to our local folder
+ 
+    This program aims to use an API to a google fusion table as a means 
+	 to get the data into a chart to be displayed on our webpage.
+	 The data is from the FRED database and is on Civilian Unemployment  rate over the years.
+	 We only want to display the data from a specified time post 2000 in a Line chart
+ * Initial steps:
+ /*1)FRED data on Civilian Unemployment is saved as a csv file to our local folder
  * 2)Index.html and scripts.js from previous assignment for are saved to the same folder to be modified 
- * e.g. by converting unneccessary to code to comment to do a way with it
+ * e.g. by converting unneccessary to code to comment to do a way with it and then changing the code
  * 3)A copy of the data is saved as a fusion table on the Google Drive
  * The link for this is: https://www.google.com/fusiontables/DataSource?docid=1Kg4n_bZlh1j5xK_KG8KxJWFjRz4Ia4r-HS8-iCUZ#rows:id=1
- * A json array of array style format of the data is generated online as a link using google fusion tables sql api
+ * A json array of array style format of the data is generated online as a link using google fusion table id and the sql api key
  */
 
-/*page loaded function, responds to document ready*/
+
 
 /*As part of the assignment, I changed varible and function names as follows:
  *myChart to mChart,
