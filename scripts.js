@@ -75,7 +75,7 @@ function googleVizloaded() {
 
 	//get function for loading data
 
-	$.get("https://www.googleapis.com/fusiontables/v1/query?sql=SELECT+*+FROM+1TKMNqzrRA4JGaqkJGv2jGnarihWZa-vvJPBYpwv7&key=AIzaSyDo19_AYa5DRvvwPl9RmRIlsSxnmlbklqg", dataLoaded, "json");
+	$.get("https://www.googleapis.com/fusiontables/v1/query?sql=SELECT+*+FROM+1Kg4n_bZlh1j5xK_KG8KxJWFjRz4Ia4r-HS8-iCUZ&key=AIzaSyDo19_AYa5DRvvwPl9RmRIlsSxnmlbklqg", dataLoaded, "json");
 }
 
 function pageDone() {
