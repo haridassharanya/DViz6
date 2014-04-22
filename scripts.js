@@ -3,6 +3,25 @@
  */
 
 
+var stemURL = "https://www.googleapis.com/fusiontables/v1/query?sql=SELECT+*+FROM+1Kg4n_bZlh1j5xK_KG8KxJWFjRz4Ia4r-HS8-iCUZ+WHERE+DATE%3E%20";
+var key = "&key=AIzaSyDo19_AYa5DRvvwPl9RmRIlsSxnmlbklqg";
+
+
+function showNewData(e) {
+	
+	var myID = e.target.id; //e.g. "year_2000"
+	console.log(myID);
+	var myNameArray = myID.split("_");// splits into array, 2000 will be second
+	console.log(myNameArray);
+	
+	var myYear = myNameArray[1]; //grab the year
+	
+	$.get(stemURL+"'"+myYear+"-12-01'"+key, dataLoaded, "json");
+	
+	
+}
+
+
 /*Outline:
  
     This program aims to use an API to a google fusion table as a means 
@@ -21,7 +40,7 @@
 
 
 /*As part of the assignment, I changed varible and function names as follows:
- *myChart to mChart,
+ *googleChart to gChart,
  * gDataTable to gTable
  * UNEMPDATA to CIVUNEMP
  * ChartOptions to ChartOpt
@@ -61,11 +80,11 @@ function dataLoaded(CIVUNEMP) {
 	};
 
 	//document.getelementbyid is the equivalent of jquery's $ sign with div name
-	//this variable mChart is referenced by the index.html file in creating a div for the page heading
+	//this variable gChart is referenced by the index.html file in creating a div for the page heading
 	
-	var mChart = new google.visualization.LineChart(document.getElementById("mChartDiv"));
+	var gChart = new google.visualization.LineChart(document.getElementById("mChartDiv"));
 
-	mChart.draw(gTable, mOptions);
+	gChart.draw(gTable, mOptions);
 
 }
 
@@ -74,10 +93,21 @@ function dataLoaded(CIVUNEMP) {
 function gVizloaded() {
 
 	console.log("google visualization is loaded!");
+	$(".btn-success").on("click", showNewData);
 
 	//get function for loading data from google fusion tables using sql api. 
 	
+	/*
 	$.get("https://www.googleapis.com/fusiontables/v1/query?sql=SELECT+*+FROM+1Kg4n_bZlh1j5xK_KG8KxJWFjRz4Ia4r-HS8-iCUZ+WHERE+DATE%3E%20'2000-12-01'&key=AIzaSyDo19_AYa5DRvvwPl9RmRIlsSxnmlbklqg", dataLoaded, "json");
+	*/
+	
+	
+$("#year_2000").click();
+
+//$("#year_2000")= $() means this is a jquery function, the # means "year_2000" is the id of the div 
+	
+	
+	//$.get(stemURL+"'2000-12-01'"+key, dataLoaded, "json");
 }
 
 
@@ -99,6 +129,23 @@ function mDone() {
 	});
 }
 
+/*
+
+function setNav() {
+	
+	console.log("setNav");
+	
+	$(".btn-success").on("click", function(e) {
+		var myId = e.target.id
+		
+		console.log(myId);
+		
+	});
+	
+}
+
+
+*/
 //document ready function: asks to run the mDone function as soon as the document is ready to be manipulated
 
 $(document).ready(mDone);
